@@ -32,6 +32,8 @@ RUN docker-php-ext-install pdo_mysql \
     --with-jpeg-dir=/usr/lib \
     --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd && \
+    #update pecl channel
+    pecl channel-update pecl.php.net && \
     # redis lib
     pecl install redis-3.1.6 \
     && docker-php-ext-enable redis
