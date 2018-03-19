@@ -16,6 +16,7 @@ RUN apt-get update \
     libmcrypt-dev \
     libxml2-dev \
     cron \
+    supervisor \
     procps \
   && rm -rf /var/lib/apt/lists/*
 
