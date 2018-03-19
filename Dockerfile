@@ -49,6 +49,7 @@ RUN echo "upload_max_filesize=20M" >> $PHP_INI_DIR/conf.d/memory-limit.ini
 RUN echo "expose_php=0" > $PHP_INI_DIR/conf.d/path-info.ini
 
 RUN touch /var/log/cron.log
+RUN mkdir -p /var/log/supervisor
 
 WORKDIR /var/www
 
