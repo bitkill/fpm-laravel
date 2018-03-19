@@ -15,6 +15,7 @@ RUN apt-get update \
     libssl-dev \
     libmcrypt-dev \
     libxml2-dev \
+    cron \
     procps \
   && rm -rf /var/lib/apt/lists/*
 
@@ -37,6 +38,16 @@ RUN docker-php-ext-install pdo_mysql \
     # redis lib
     pecl install redis-3.1.6 \
     && docker-php-ext-enable redis
+
+RUN echo "memory_limit=2048M" > $PHP_INI_DIR/conf.d/memory-limit.ini
+RUN echo "max_execution_time=900" >> $PHP_INI_DIR/conf.d/memory-limit.ini
+RUN echo "post_max_size=20M" >> $PHP_INI_DIR/conf.d/memory-limit.ini
+RUN echo "upload_max_filesize=20M" >> $PHP_INI_DIR/conf.d/memory-limit.ini
+
+# Disable expose PHP
+RUN echo "expose_php=0" > $PHP_INI_DIR/conf.d/path-info.ini
+
+RUN touch /var/log/cron.log
 
 WORKDIR /var/www
 
