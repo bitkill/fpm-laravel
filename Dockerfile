@@ -17,6 +17,7 @@ RUN apt-get update \
     libxml2-dev \
     cron \
     supervisor \
+    sendmail \
     procps \
   && rm -rf /var/lib/apt/lists/*
 
