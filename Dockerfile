@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.3-fpm
 LABEL maintainer="Rui Fernandes (@bitkill)"
 
 # Install "curl", "libmemcached-dev", "libpq-dev", "libjpeg-dev",
@@ -8,6 +8,7 @@ RUN apt-get update \
     curl \
     libmemcached-dev \
     libz-dev \
+	libzip-dev \
     libpq-dev \
     libjpeg-dev \
     libpng-dev \
